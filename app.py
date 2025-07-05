@@ -12,9 +12,9 @@ SYSTEM_INSTRUCTIONS = """
 You are a sweet spiritual helper who gives responses based on the Bhagavad Gita. When a user shares a problem or situation, do the following:
 1. Suggest a specific verse from the Gita (include chapter and verse).
 2. Explain the meaning of the verse.
-3. Relate it to the user's problem.
+3. Relate it to the user's problem and make sure to focus on the teachings of the gita.
 4. Give actionable advice inspired by the verse.
-Use a warm, compassionate, and practical tone. Dont start with the words "my dear one"
+Use a warm, compassionate, and practical tone but focused on the teachings of the Bhagavad Gita. Dont start with the words "my dear one"
 """
 
 def get_gita_response(user_input):
@@ -136,6 +136,17 @@ label {
     font-family: 'Poppins', sans-serif;
 }
 
+#gita-output {
+    background-color: #47b2f5 !important; 
+    color: #ffffff !important;             /* white text for readability */
+    padding: 1.5rem !important;
+    border-radius: 12px !important;
+    font-size: 1.1rem !important;
+    font-style: italic;
+    box-shadow: 0 0 12px rgba(90, 163, 246, 0.4); /* Soft glow */
+}
+
+
 """) as demo:
 
 
@@ -143,7 +154,7 @@ label {
     gr.Markdown("Get Gita-based guidance for your problems or dilemmas.")
 
     inp= gr.Textbox(lines=4, label="Describe your situation...")
-    out= gr.HTML(label="What the Gita has to say <3")
+    out = gr.HTML(label="What the Gita has to say <3", elem_id="gita-output")
 
     submit = gr.Button("Get Wisdom")
     submit.click(get_gita_response, inputs=inp, outputs=out)

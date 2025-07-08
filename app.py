@@ -159,5 +159,6 @@ label {
     submit = gr.Button("Get Wisdom")
     submit.click(get_gita_response, inputs=inp, outputs=out)
 
-demo.launch(server_name="0.0.0.0", server_port=int(os.getenv("PORT", 7860)), debug=True)
+if __name__ == "__main__":
+    demo.launch(server_name="0.0.0.0", server_port=int(os.getenv("PORT", 7860)))
 
